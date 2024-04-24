@@ -1,0 +1,17 @@
+.sh-mq {
+  
+    // показывать только в mobile
+    &_m {
+        @media (min-width: 770px) {
+            display: none !important;
+        }
+    }
+
+    // показывать только в desktop
+    &_d {
+        @media (max-width: 770px) {
+            display: none !important;
+        }
+    }
+
+}
