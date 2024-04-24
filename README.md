@@ -1,35 +1,26 @@
 # trello_desk_project
 
-This template should help get you started developing with Vue 3 in Vite.
+## Clone project
+```sh
+git clone (url from github)
+```
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
+## Project setup. Generate the package-lock.json
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
+## Build project. Compile and Minify for Production
 ```sh
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
-
+## Go to the folder
 ```sh
-npm run lint
+cd dist
+```
+
+## Launch the server
+```sh
+npx http-server
 ```

@@ -1,0 +1,17 @@
+@import './styles/base.scss';
+@import './styles/mq.scss';
+
+#app {
+  height: 100%;
+}
+
+[v-cloak] {
+  display: none !important;
+}
+
+button {
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
