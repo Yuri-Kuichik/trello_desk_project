@@ -1,16 +1,41 @@
 <script setup>
+import { ref, provide, watch } from 'vue'
 import { RouterView } from 'vue-router'
-import BarSection from './components/BarSection.vue';
+import { useRootStore } from './stores/root'
+import { storeToRefs } from 'pinia'
+
+const rootStore = useRootStore()
+rootStore.getDataColumns()
+
+const { columns } = storeToRefs(rootStore)
+provide('dataColumns', columns)
+
+const isLogged = ref(false)
+isLogged.value = rootStore.getIsLoggedIn()
+
+watch(
+  columns, 
+  (data) => {
+    rootStore.$state = { columns: data }
+    
+    rootStore.setColumnsToLocalStorage(data)
+  },
+  { deep: true }
+)
+
+rootStore.$subscribe((mutation, state) => {
+  rootStore.setStateToLocalStorage(state)
+})
+
 </script>
 
 <template>
   <div class="app-view" v-cloak>
-    <BarSection/>
     <RouterView />
   </div>
 </template>
 
-<style>
+<style lang="scss">
 .app-view {
   min-height: 100%;
 }
