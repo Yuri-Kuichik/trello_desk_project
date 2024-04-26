@@ -23,55 +23,65 @@ const bell = () => {
 
 <template>
     <header class="bar-section">
-        <RouterLink to="/">
-            <img alt="Trello logo" class="sh-mq_d" src="@/assets/logo.svg" width="76" height="30" />
-        </RouterLink>
-        
-        <div class="bar-section__boards"> 
-            <RouterLink to="/about" class="bar-section__boards-link">
-                <img class="bar-section__boards-image" alt="search icon" src="@/assets/icons/trello-mark-blue.svg" />
-                <span class="sh-mq_d">Boards</span>
+        <div class="bar-section__wrapper">
+            <RouterLink to="/">
+                <img alt="Trello logo" class="sh-mq_d" src="@/assets/logo.svg" width="76" height="30" />
             </RouterLink>
-        </div>
+            
+            <div class="bar-section__boards"> 
+                <RouterLink to="/about" class="bar-section__boards-link">
+                    <img class="bar-section__boards-image" alt="search icon" src="@/assets/icons/trello-mark-blue.svg" />
+                    <span class="sh-mq_d">Boards</span>
+                </RouterLink>
+            </div>
 
-        <div class="bar-section__search-wrapper">
-            <button class="sh-mq_m" @click="search">
-                <img alt="search icon" src="@/assets/icons/search-mob-outline.svg" width="20" height="20" />
-            </button>
+            <div class="bar-section__search-wrapper">
+                <button class="sh-mq_m" @click="search">
+                    <img alt="search icon" src="@/assets/icons/search-mob-outline.svg" width="20" height="20" />
+                </button>
 
-            <div class="bar-section__search sh-mq_d">
-                <input 
-                    v-model="searchString"
-                    @keypress.enter="search"
-                />
-                <button @click="search">
-                    <img alt="search icon" src="@/assets/icons/search-outline.svg" width="16" height="16" />
+                <div class="bar-section__search sh-mq_d">
+                    <input 
+                        v-model="searchString"
+                        @keypress.enter="search"
+                    />
+                    <button @click="search">
+                        <img alt="search icon" src="@/assets/icons/search-outline.svg" width="16" height="16" />
+                    </button>
+                </div>
+            </div>
+        
+            <div class="bar-section__actions">
+                <button @click="plus">
+                    <img alt="search icon" src="@/assets/icons/plus-circle-outline.svg" width="20" height="20" />
+                </button>
+                <button @click="alert">
+                    <img alt="search icon" src="@/assets/icons/alert-circle-outline.svg" width="20" height="20" />
+                </button>
+                <button @click="bell">
+                    <img alt="search icon" src="@/assets/icons/bell-outline.svg" width="20" height="20" />
                 </button>
             </div>
+            <img alt="user image" class="bar-section__user" src="@/assets/img/user.png"/>
         </div>
-        
-        <div class="bar-section__actions">
-            <button @click="plus">
-                <img alt="search icon" src="@/assets/icons/plus-circle-outline.svg" width="20" height="20" />
-            </button>
-            <button @click="alert">
-                <img alt="search icon" src="@/assets/icons/alert-circle-outline.svg" width="20" height="20" />
-            </button>
-            <button @click="bell">
-                <img alt="search icon" src="@/assets/icons/bell-outline.svg" width="20" height="20" />
-            </button>
-        </div>
-        <img alt="user image" class="bar-section__user" src="@/assets/img/user.png"/>
+
+        <div class="bar-section__divider"></div>
     </header>
+
+   
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .bar-section {
-        display: flex;
-        align-items: center;
-        padding: 0 16px;
-        height: 55px;
-        border-bottom: solid 1px var(--color-border);
+        height: var(--heigth-mob-bar-section);
+
+        &__wrapper {
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            height: 100%;
+        }
+        
 
         a {
             color: var(--color-text);
@@ -103,7 +113,7 @@ const bell = () => {
             padding: 0 14px;
             height: 30px;
             max-width: 512px;
-            background: #F4F4F4;
+            background: var(--color-background-grey);
             border-radius: 15px;
             
 
@@ -133,9 +143,17 @@ const bell = () => {
             width: 30px;
         }
 
+        &__divider {
+            height: 1px;
+            background-color: var(--color-border);
+        }
+
         @media (min-width: 770px) {
-            height: 59px;
-            padding: 0 30px;
+            height: var(--heigth-desk-bar-section);
+
+            &__wrapper {
+                padding: 0 30px;
+            }
 
             &__boards {
                 padding: 0 20px;
@@ -160,5 +178,7 @@ const bell = () => {
             }
         }
     }
+
+    
 
 </style>
