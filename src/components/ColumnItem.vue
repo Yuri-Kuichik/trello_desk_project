@@ -1,10 +1,9 @@
 <script setup>
-import { inject, defineProps } from 'vue'
-import { useRootStore } from '../stores/root';
+import { defineProps } from 'vue'
 
-const rootStore = useRootStore()
+import CardItem from './CardItem.vue';
 
-const props = defineProps({
+defineProps({
     model: {
         type: Object,
         default: () => ({})
@@ -22,7 +21,14 @@ const props = defineProps({
             </button>
         </div>
 
-        <div class="column-item__cards" @click="rootStore.addItemToColumns">{{ model.id }}</div>
+        <div class="column-item__card-list">
+            <CardItem 
+                v-for="item in model.cards"
+                :key="item.id"
+                :model="item"
+            />
+            <CardItem new-card />
+        </div>
     </div>
 </template>
 
@@ -36,6 +42,13 @@ const props = defineProps({
         background: var(--color-background-grey);
         border-radius: 10px;
         margin-bottom: 10px;
+        font-weight: 500;
+    }
+
+    &__card-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     @media (min-width: 770px) {

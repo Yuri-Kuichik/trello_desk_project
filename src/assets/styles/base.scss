@@ -1,8 +1,11 @@
 /* semantic variables for this project */
 :root {
   --color-background: #ffffff;
-  --color-text: #000000;
-  --color-border: rgba(0,0,0, .1);
+  --color-text-emphasis: #000000;
+  --color-text-medium: rgba(0,0,0, .5);
+  --color-text-light: rgba(0,0,0, .3);
+  --color-border-light: rgba(0,0,0, .1);
+  --color-border-emphasis: rgba(0,0,0, .2);
   --color-background-grey: #F4F4F4;
   --color-element-grey: #CDCCCA;
   --heigth-mob-bar-section: 55px;
@@ -52,5 +55,5 @@ button {
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, .35);;
+    background-color: rgba(0, 0, 0, .35);
   }

@@ -84,7 +84,7 @@ const bell = () => {
         
 
         a {
-            color: var(--color-text);
+            color: var(--color-text-emphasis);
             text-decoration: none;
         }
 
@@ -145,7 +145,7 @@ const bell = () => {
 
         &__divider {
             height: 1px;
-            background-color: var(--color-border);
+            background-color: var(--color-border-light);
         }
 
         @media (min-width: 770px) {
@@ -158,8 +158,8 @@ const bell = () => {
             &__boards {
                 padding: 0 20px;
                 margin: 0 20px;
-                border-left: solid 1px var(--color-border);
-                border-right: solid 1px var(--color-border);
+                border-left: solid 1px var(--color-border-light);
+                border-right: solid 1px var(--color-border-light);
             }
 
             &__boards-image {
