@@ -4,7 +4,7 @@ import { defineProps } from 'vue';
 defineProps({
     progress: {
         type: Array,
-        default: () => ([])
+        default: () => ([{speed: 6}])
     }
 })
 

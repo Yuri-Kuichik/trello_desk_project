@@ -1,42 +1,31 @@
 <script setup>
 import { defineProps } from 'vue';
+import { useRootStore } from '../stores/root';
 
 import CardProgressBar from './CardProgressBar.vue';
+import CardFooter from './CardFooter.vue';
 
-defineProps({
+const rootStore = useRootStore();
+
+const props = defineProps({
     model: {
         type: Object,
-        default: () => ({speed: 6})
+        default: () => ({})
     },
     newCard: {
         type: Boolean,
         drfault: false
     }
-})
-
-const getRandomInt = () => {
-    return Math.floor(Math.random() * 100);
-}
-
-const addMassage = () => {
-    // do something
-}
-
-const noteLikeCard = () => {
-    // do something
-}
-
-const attachFile = () => {
-    // do something
-}
+});
 
 const addCard = () => {
     alert('addCard');
-}
+    rootStore.updateCard(props.model.id)
+};
 
 const editCard = () => {
-    alert('editCard');
-}
+    alert('editCard')
+};
 
 </script>
 
@@ -60,25 +49,7 @@ const editCard = () => {
             </div>
         </div>
 
-       
-        <div class="card-item__footer">
-            <div class="card-item__users">users</div>
-
-            <div class="card-item__icons">
-                <div class="l-box_inline l-box_aic" @click.stop="addMassage">
-                    <span class="sh-p3">{{ getRandomInt() }}</span>
-                    <img alt="message icon" src="/src/assets/icons/message-square-outline.svg" />
-                </div>
-                <div class="l-box_inline l-box_aic" @click.stop="noteLikeCard">
-                    <span class="sh-p3">{{ getRandomInt() }}</span>
-                    <img alt="heart icon" src="/src/assets/icons/heart-outline.svg" />
-                </div>
-                <div class="l-box_inline l-box_aic" @click.stop="attachFile">
-                    <span class="sh-p3">{{ getRandomInt() }}</span>
-                    <img alt="attach icon" src="/src/assets/icons/attach-outline.svg" />
-                </div>
-            </div>
-        </div>
+        <CardFooter />
     </div>
 </template>
 
@@ -124,25 +95,6 @@ const editCard = () => {
         color: var(--color-text-medium);
     }
 
-    &__footer {
-        display: flex;
-        justify-content: space-between;
-        padding-top: 8px;
-    }
-
-    &__icons {
-        display: flex;
-        justify-content: space-between;
-        width: 122px;
-        color: var(--color-text-light);
-
-        img {
-            height: 16px;
-            width: 16px;
-            margin-left: 1px;
-        }
-    }
-
     @media (min-width: 770px) {
         gap: 16px;
         padding: 20px;
@@ -153,20 +105,6 @@ const editCard = () => {
 
         &__description {
             margin-top: 3px;
-        }
-
-        &__footer {
-            padding-top: 11px;
-        }
-
-        &__icons {
-            width: 152px;
-
-            img {
-            height: 20px;
-            width: 20px;
-            margin-left: 1px;
-        }
         }
     }
 }

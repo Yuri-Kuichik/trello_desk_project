@@ -1,13 +1,28 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, ref, watch } from 'vue';
+import { useRootStore } from '@/stores/root';
 
+import draggable from 'vuedraggable'
 import CardItem from './CardItem.vue';
 
-defineProps({
+const rootStore = useRootStore()
+
+const props = defineProps({
     model: {
         type: Object,
         default: () => ({})
+    },
+    columnIndex: {
+        type: Number
     }
+})
+
+const dataCards = ref(props.model.cards);
+const drag = ref(false);
+
+watch( dataCards, (newData) => {
+    console.log('ColumnItem component -> mwatch dataCards -> newData: ', newData)
+    rootStore.updateColumn(props.columnIndex, newData)
 })
 
 </script>
@@ -21,14 +36,25 @@ defineProps({
             </button>
         </div>
 
-        <div class="column-item__card-list">
-            <CardItem 
-                v-for="item in model.cards"
-                :key="item.id"
-                :model="item"
-            />
-            <CardItem new-card />
-        </div>
+        <draggable 
+            class="column-item__cards"
+            v-model="dataCards" 
+            group="cards" 
+            :animation="100"
+            @start="drag = true" 
+            @end="drag = false" 
+            item-key="id"
+        >
+            <template #item="{element}">
+                <div>
+                    <CardItem :model="element"/>
+                </div> 
+            </template>
+
+            <template #footer>
+                <CardItem new-card />
+            </template>
+        </draggable>
     </div>
 </template>
 
@@ -45,7 +71,7 @@ defineProps({
         font-weight: 500;
     }
 
-    &__card-list {
+    &__cards {
         display: flex;
         flex-direction: column;
         gap: 10px;
