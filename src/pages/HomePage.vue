@@ -2,7 +2,7 @@
 import {inject} from 'vue'
 
 import BarSection from '@/components/BarSection.vue';
-import ColumnList from '@/components/ColumnList.vue';
+import ColumnItem from '@/components/ColumnItem.vue';
 
 const columns = inject('dataColumns', []);
 
@@ -16,7 +16,18 @@ const columns = inject('dataColumns', []);
             <!-- NavSection-->
             <div class="home-page__nav"> Nav section</div>
 
-            <ColumnList class="home-page__list" v-if="columns.length" :columns="columns" />
+            <div class="home-page__content">
+                <div class="home-page__columns">
+                    <div class="home-page__columns-wrapper">
+                        <ColumnItem 
+                            v-for="(item, index) in columns"
+                            :key="item.id"
+                            :model="item"
+                            :column-index="index"
+                        />
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
     
@@ -36,9 +47,18 @@ const columns = inject('dataColumns', []);
         margin-top: 20px;
     }
 
-    &__list {
+    &__content {
         flex-grow: 1;
         margin-bottom: 13px;
+    }
+
+    &__columns  {
+        overflow-x: auto;
+    }
+
+    &__columns-wrapper {
+        display: flex; 
+        gap: 16px;
     }
 
     @media (min-width: 770px) {
@@ -52,8 +72,12 @@ const columns = inject('dataColumns', []);
             margin-top: 30px;
         }
 
-        &__list {
+        &__content {
             margin-bottom: 16px;
+        }
+
+        &__columns {
+            gap: 30px;
         }
     }
 }

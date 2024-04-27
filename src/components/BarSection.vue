@@ -29,7 +29,7 @@ const bell = () => {
             </RouterLink>
             
             <div class="bar-section__boards"> 
-                <RouterLink to="/about" class="bar-section__boards-link">
+                <RouterLink to="/" class="bar-section__boards-link">
                     <img class="bar-section__boards-image" alt="search icon" src="@/assets/icons/trello-mark-blue.svg" />
                     <span class="sh-mq_d">Boards</span>
                 </RouterLink>

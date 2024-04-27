@@ -32,6 +32,16 @@ export const useRootStore = defineStore('root', {
     getIsLoggedIn() {
       const res = localStorage.getItem(USER_IS_LOGGED_KEY)
       return res && res === 'true'
+    },
+
+    updateCard(idCard) {
+      console.log('updateCard -> idCard: ', idCard);
+      this.columns[0].cards[0].description = 'changed description from rootStore'
+    },
+
+    updateColumn(columnIndex, data) {
+      console.log('updateColumn -> columnIndex, data: ', columnIndex, data);
+      this.columns[columnIndex].cards = data
     }
   }
 
