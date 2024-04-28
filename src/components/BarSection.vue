@@ -1,5 +1,7 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
+
+const user = inject('dataUser', {})
 
 const searchString = ref('');
  
@@ -62,7 +64,7 @@ const bell = () => {
                     <img alt="search icon" src="@/assets/icons/bell-outline.svg" width="20" height="20" />
                 </button>
             </div>
-            <img alt="user image" class="bar-section__user" src="@/assets/img/user.png"/>
+            <img alt="user image" class="bar-section__user" :src="user.image"/>
         </div>
 
         <div class="bar-section__divider"></div>

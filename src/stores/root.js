@@ -7,10 +7,15 @@ const USER_IS_LOGGED_KEY = 'user_auth';
 
 export const useRootStore = defineStore('root', {
   state: () => ({
+    user: {},
     columns: []
   }),
 
   actions: {
+    getDataUser() {
+      this.user = defaultDataState.user
+    },
+
     getDataColumns() {
       const data = this.getKeyLocalStorage(ROOT_STATE_COLUMNS_KEY)
 
@@ -34,14 +39,21 @@ export const useRootStore = defineStore('root', {
       return res && res === 'true'
     },
 
-    updateCard(idCard) {
-      console.log('updateCard -> idCard: ', idCard);
-      this.columns[0].cards[0].description = 'changed description from rootStore'
+    updateColumn(columnIndex, data) {
+      this.columns[columnIndex].cards = data
     },
 
-    updateColumn(columnIndex, data) {
-      console.log('updateColumn -> columnIndex, data: ', columnIndex, data);
-      this.columns[columnIndex].cards = data
+    addCardToColumn(columnIndex, card) {
+      card.id = this.getIdForNewCards()
+      this.columns[columnIndex].cards.push(card)
+    },
+
+    getIdForNewCards() {
+      let allCards = this.columns.reduce((sum, column) => {
+        return sum + column.cards.length
+      }, 0);
+      
+      return allCards + 1
     }
   }
 

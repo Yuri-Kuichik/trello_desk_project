@@ -39,21 +39,29 @@ button {
   cursor: pointer;
 }
 
-  /* полоса прокрутки (скроллбар) */
-  ::-webkit-scrollbar {
-    width: 14px; 
-    height: 14px;
-    background-color: var(--color-background-grey);
-    border-radius: 7px;
-    ;
-  }
-  
-  /* ползунок скроллбара */
-  ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, .3);
-    border-radius: 7px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, .35);
-  }
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+  width: 14px; 
+  height: 14px;
+  background-color: var(--color-background-grey);
+  border-radius: 7px;
+  ;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .3);
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, .35);
+}
+
+textarea {
+  font-family: "Poppins", sans-serif;
+}
+
+input, textarea {
+  padding: 5px;
+}

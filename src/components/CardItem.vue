@@ -1,56 +1,104 @@
 <script setup>
-import { defineProps } from 'vue';
-import { useRootStore } from '../stores/root';
+import { defineProps, ref, defineEmits } from 'vue';
 
 import CardProgressBar from './CardProgressBar.vue';
 import CardFooter from './CardFooter.vue';
+import ModalBox from './ModalBox.vue'
 
-const rootStore = useRootStore();
+const isOpenModal = ref(false)
+
+const emit = defineEmits(['addCard'])
 
 const props = defineProps({
     model: {
         type: Object,
-        default: () => ({})
+        default: () => ({
+            id: null,
+            title: '',
+            description: '',
+            progress: [
+                {speed: 6}
+            ],
+            image: ''
+        })
     },
     newCard: {
         type: Boolean,
-        drfault: false
+        default: false
     }
 });
 
-const addCard = () => {
-    alert('addCard');
-    rootStore.updateCard(props.model.id)
-};
+const dataCard = ref(props.model)
 
-const editCard = () => {
-    alert('editCard')
+const openModal = () => {
+    isOpenModal.value = true
+}
+
+const addCard = () => {
+    emit('add-card', dataCard.value)
+    isOpenModal.value = false
 };
 
 </script>
 
 <template>
-    <div v-if="newCard" @click="addCard" class="card-item card-item_empty">
+    <div v-if="newCard" @click="openModal" class="card-item card-item_empty">
         <div>+ Add new card</div>
     </div>
 
-    <div v-else class="card-item" @click="editCard">
-        <div v-if="model.urlImage" class="card-item__image">
-            <img alt="card image" :src="model.urlImage" />
+    <div v-else class="card-item" @click="openModal">
+        <div v-if="model.image" class="card-item__image">
+            <img alt="card image" :src="model.image" />
         </div>
 
         <div>
             <CardProgressBar :progress="model.progress"/>
             <div class="card-item__title">
-                {{ model.title }}
+                <div class="drag-handle l-box_inline l-box_aic">
+                    <img alt="draggable icon" src="@/assets/icons/drag.svg" />
+                </div>
+                <div>
+                    {{ model.title }}
+                </div>
             </div>
             <div v-if="model.description" class="card-item__description sh-p2">
                 {{ model.description }}
             </div>
+            
         </div>
 
         <CardFooter />
     </div>
+
+    <ModalBox :open="isOpenModal" @close="isOpenModal=false">
+        <div class="modal-box">
+            <h3>{{ newCard ? 'Create card' : 'Edit card' }}</h3>
+
+            <div class="l-box l-box_fdc">
+                <span class="sh-p3">Title:</span>
+                <input class="sh-p1" v-model="dataCard.title" placeholder="Write the theme of the card" />
+            </div>
+            <br/>
+
+            <div class="l-box l-box_fdc">
+                <span class="sh-p3">Description:</span>
+                <textarea class="sh-p1" v-model="dataCard.description" placeholder="Write the description of the card"></textarea>
+            </div>
+            <br/>
+
+            <div class="l-box l-box_fdc">
+                <span class="sh-p3">Image:</span>
+                <input class="sh-p1" v-model="dataCard.image" placeholder="Enter url picture" />
+            </div>
+            <br/>
+
+            <div class="l-box buttons">
+                <button class="btn l-box l-box_jcc" @click="isOpenModal = false" >Close</button>
+                <button v-if="newCard" class="btn btn_blue l-box l-box_jcc" @click="addCard">Add card</button>
+            </div>
+        </div>
+    </ModalBox>
+   
 </template>
 
 <style lang="scss">
@@ -87,6 +135,8 @@ const editCard = () => {
     }
 
     &__title {
+        display: flex;
+        gap: 8px;
         margin-top: 6px;
     }
 
@@ -106,6 +156,26 @@ const editCard = () => {
         &__description {
             margin-top: 3px;
         }
+    }
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;  
+
+    .btn {
+        padding: 10px 0;
+        border-radius: 8px;
+        background-color: rgba(0,0,0, .2); 
+
+        &:hover {
+            opacity: 0.9;
+        } 
+    }
+
+        .btn_blue {
+        color: #FFFFFF;
+        background-color: #0075FF;
     }
 }
 
