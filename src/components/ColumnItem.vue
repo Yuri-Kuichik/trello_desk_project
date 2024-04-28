@@ -19,6 +19,7 @@ const props = defineProps({
 
 const dataCards = ref(props.model.cards);
 const drag = ref(false);
+const canDraggable = ref(true)
 
 const addCard = (card) => {
     rootStore.addCardToColumn(props.columnIndex, card)
@@ -35,7 +36,7 @@ watch( dataCards, (newData) => {
     <div class="column-item">
         <div class="column-item__header l-box l-box_jcsb">
             <div class="sh-p1_col">{{ model.name }}</div>
-            <button class="l-box_inline l-box_aic">
+            <button class="l-box_inline l-box_aic" @click="canDraggable = !canDraggable">
                 <img src="@/assets/icons/dots.svg" />
             </button>
         </div>
@@ -52,7 +53,7 @@ watch( dataCards, (newData) => {
         >
             <template #item="{element}">
                 <div>
-                    <CardItem :model="element"/>
+                    <CardItem :model="element" :is-draggable="canDraggable"/>
                 </div> 
             </template>
 

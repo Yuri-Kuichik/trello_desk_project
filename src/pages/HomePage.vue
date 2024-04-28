@@ -3,6 +3,7 @@ import {inject} from 'vue'
 
 import BarSection from '@/components/BarSection.vue';
 import ColumnItem from '@/components/ColumnItem.vue';
+import NavSectiion from '@/components/NavSectiion.vue';
 
 const columns = inject('dataColumns', []);
 
@@ -14,7 +15,11 @@ const columns = inject('dataColumns', []);
 
         <main>
             <!-- NavSection-->
-            <div class="home-page__nav"> Nav section</div>
+            
+
+            <div class="home-page__nav">
+                <NavSectiion />
+            </div>
 
             <div class="home-page__content">
                 <div class="home-page__columns">

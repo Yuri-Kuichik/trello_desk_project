@@ -25,6 +25,10 @@ const props = defineProps({
     newCard: {
         type: Boolean,
         default: false
+    },
+    isDraggable: {
+        type: Boolean,
+        default: false
     }
 });
 
@@ -54,7 +58,7 @@ const addCard = () => {
         <div>
             <CardProgressBar :progress="model.progress"/>
             <div class="card-item__title">
-                <div class="drag-handle l-box_inline l-box_aic">
+                <div v-if="isDraggable" class="drag-handle l-box_inline l-box_aic">
                     <img alt="draggable icon" src="@/assets/icons/drag.svg" />
                 </div>
                 <div>
@@ -67,7 +71,7 @@ const addCard = () => {
             
         </div>
 
-        <CardFooter />
+        <CardFooter :users-img="model?.users" />
     </div>
 
     <ModalBox :open="isOpenModal" @close="isOpenModal=false">
@@ -138,6 +142,12 @@ const addCard = () => {
         display: flex;
         gap: 8px;
         margin-top: 6px;
+    }
+
+    .drag-handle {
+        img { 
+            pointer-events: none; 
+        }
     }
 
     &__description {
