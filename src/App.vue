@@ -6,9 +6,11 @@ import { storeToRefs } from 'pinia'
 
 const rootStore = useRootStore()
 rootStore.getDataColumns()
+rootStore.getDataUser()
 
-const { columns } = storeToRefs(rootStore)
+const { user, columns } = storeToRefs(rootStore)
 provide('dataColumns', columns)
+provide('dataUser', user)
 
 const isLogged = ref(false)
 isLogged.value = rootStore.getIsLoggedIn()

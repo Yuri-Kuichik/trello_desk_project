@@ -20,6 +20,10 @@ const props = defineProps({
 const dataCards = ref(props.model.cards);
 const drag = ref(false);
 
+const addCard = (card) => {
+    rootStore.addCardToColumn(props.columnIndex, card)
+}
+
 watch( dataCards, (newData) => {
     console.log('ColumnItem component -> mwatch dataCards -> newData: ', newData)
     rootStore.updateColumn(props.columnIndex, newData)
@@ -40,6 +44,7 @@ watch( dataCards, (newData) => {
             class="column-item__cards"
             v-model="dataCards" 
             group="cards" 
+            handle=".drag-handle"
             :animation="100"
             @start="drag = true" 
             @end="drag = false" 
@@ -52,7 +57,7 @@ watch( dataCards, (newData) => {
             </template>
 
             <template #footer>
-                <CardItem new-card />
+                <CardItem new-card @add-card="addCard" />
             </template>
         </draggable>
     </div>

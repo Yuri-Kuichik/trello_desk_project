@@ -1,4 +1,8 @@
-export default {   
+export default {  
+    user: {
+        image: 'https://lh3.googleusercontent.com/drive-viewer/AKGpihatFeKCudLeeDUuB9cUsfTY-smFzF95y0GVfvaKjetoQgxRSRMsCu8hen1zfj_2P4XQj-F8Ja5dCWS6ENMWZ6cs3RLrLhoIQJ4=s2560',
+        name: 'Petrova Anna'  
+    },
     columns: [
         {
             id: 1,
@@ -11,7 +15,7 @@ export default {
                     progress: [
                         {speed: 2}
                     ],
-                    urlImage: ''
+                    image: ''
 
                 },
                 {
@@ -24,7 +28,7 @@ export default {
                         {speed: 3},
                         {speed: 6},
                     ],
-                    urlImage: ''
+                    image: ''
                 },
                 {
                     id: 3,
@@ -33,7 +37,7 @@ export default {
                     progress: [
                         {speed: 5}
                     ],
-                    urlImage: '/src/assets/img/card-image-1.png'
+                    image: 'https://lh3.googleusercontent.com/drive-viewer/AKGpihanp_vIN_bjFrAzgM2497Ha7aiN27-qcB6HVUhYzJLfyNSHOHMCPIv0uCYd3oNiD9qT4yRHatsY0ECKa_YWkfEH2y9QJG3hWQ=s2560'
                 }
             ]
         },
@@ -50,7 +54,7 @@ export default {
                         {speed: 1},
                         {speed: 3},
                     ],
-                    urlImage: ''
+                    image: ''
                 },
                 {
                     id: 5,
@@ -60,7 +64,7 @@ export default {
                         {speed: 5},
                         {speed: 2},
                     ],
-                    urlImage: '/src/assets/img/card-image-2.png'
+                    image: 'https://lh3.googleusercontent.com/drive-viewer/AKGpihbCKvPy6xqfNh8XtvVZLMuhoKu1GOuHPzIWcaPD2qxHk1UW-OA_ggA5S-E4o8j16gkEvdXzS_K107FoAa4aIg6c5tmiYBFo19A=s2560'
                 },
                 {
                     id: 6,
@@ -69,7 +73,7 @@ export default {
                     progress: [
                         {speed: 6}
                     ],
-                    urlImage: '/src/assets/img/card-image-3.png'
+                    image: 'https://lh3.googleusercontent.com/drive-viewer/AKGpihY5pWzSC-A-vgbxVQr3Bg327YpbfNCsU1E6a8hootaVpH9MEdR6KQ1YnoDG28KYCfVeV0f1Z2uJUNpI1Hb8WgkThJlhEJIOlRY=s2560'
                 }
             ]
         },
@@ -86,7 +90,7 @@ export default {
                         {speed: 1},
                         {speed: 5}
                     ],
-                    urlImage: '/src/assets/img/card-image-4.png'
+                    image: 'https://lh3.googleusercontent.com/drive-viewer/AKGpihaCJM1nxYIeMTr38JU5yZpheDfT4L1K1uFXocZOLoultQnVCZWmx0VT-pEw8FkhcxQ3GcfOdsnXc9tu3ha-2SAGxHFh9pXUOmg=s2560'
                 },
                 {
                     id: 8,
@@ -96,7 +100,7 @@ export default {
                         {speed: 4},
                         {speed: 6}
                     ],
-                    urlImage: ''
+                    image: ''
                 }
             ]
         },
@@ -112,7 +116,7 @@ export default {
                         {speed: 5},
                         {speed: 1}
                     ],
-                    urlImage: ''
+                    image: ''
                 },
                 {
                     id: 10,
@@ -123,7 +127,7 @@ export default {
                         {speed: 1},
                         {speed: 5},
                     ],
-                    urlImage: '/src/assets/img/card-image-5.png'
+                    image: 'https://lh3.googleusercontent.com/drive-viewer/AKGpihYpP--DtIq2yDX-Ir_acPt9JtA8QizXmVgA8qPIQf7bQdYIPa3n9AfSQBXbkdBLC7p-40k34s-6jLl7FrwZBLGkfPOvRf_01IY=s2560'
                 },
                 {
                     id: 11,
@@ -132,7 +136,7 @@ export default {
                     progress: [
                         {speed: 2}
                     ],
-                    urlImage: ''
+                    image: ''
                 },
                 {
                     id: 12,
@@ -142,7 +146,7 @@ export default {
                         {speed: 4},
                         {speed: 6}
                     ],
-                    urlImage: ''
+                    image: ''
                 }
             ]
         },
@@ -159,7 +163,7 @@ export default {
                         {speed: 1},
                         {speed: 3},
                     ],
-                    urlImage: ''
+                    image: ''
                 },
                 {
                     id: 14,
@@ -169,7 +173,7 @@ export default {
                         {speed: 3},
                         {speed: 6}
                     ],
-                    urlImage: ''
+                    image: ''
                 },
                 {
                     id: 15,
@@ -179,7 +183,7 @@ export default {
                         {speed: 5},
                         {speed: 2}
                     ],
-                    urlImage: '/src/assets/img/card-image-6.png'
+                    image: 'https://lh3.googleusercontent.com/drive-viewer/AKGpihbp5p-aNamqQ5_CKZP8A3MSbwRZ1JQsSRYaMc7JEM1tKWhqNhIw9v8ldAs0FGOUgpliG9LUntH15Z09jMqaX8UjDW6tCCJmpPU=s2560'
                 }
             ]
         },
@@ -194,7 +198,7 @@ export default {
                     progress: [
                         {speed: 2}
                     ],
-                    urlImage: ''
+                    image: ''
 
                 },
                 {
@@ -207,7 +211,7 @@ export default {
                         {speed: 3},
                         {speed: 6},
                     ],
-                    urlImage: ''
+                    image: ''
                 },
                 {
                     id: 18,
@@ -216,7 +220,7 @@ export default {
                     progress: [
                         {speed: 5}
                     ],
-                    urlImage: '/src/assets/img/card-image-1.png'
+                    image: 'https://lh3.googleusercontent.com/drive-viewer/AKGpihanp_vIN_bjFrAzgM2497Ha7aiN27-qcB6HVUhYzJLfyNSHOHMCPIv0uCYd3oNiD9qT4yRHatsY0ECKa_YWkfEH2y9QJG3hWQ=s2560'
                 }
             ]
         },
@@ -233,7 +237,7 @@ export default {
                         {speed: 1},
                         {speed: 3},
                     ],
-                    urlImage: ''
+                    image: ''
                 },
                 {
                     id: 20,
@@ -243,7 +247,7 @@ export default {
                         {speed: 5},
                         {speed: 2},
                     ],
-                    urlImage: '/src/assets/img/card-image-2.png'
+                    image: 'https://lh3.googleusercontent.com/drive-viewer/AKGpihbCKvPy6xqfNh8XtvVZLMuhoKu1GOuHPzIWcaPD2qxHk1UW-OA_ggA5S-E4o8j16gkEvdXzS_K107FoAa4aIg6c5tmiYBFo19A=s2560'
                 },
                 {
                     id: 21,
@@ -252,7 +256,7 @@ export default {
                     progress: [
                         {speed: 6}
                     ],
-                    urlImage: '/src/assets/img/card-image-3.png'
+                    image: 'https://lh3.googleusercontent.com/drive-viewer/AKGpihY5pWzSC-A-vgbxVQr3Bg327YpbfNCsU1E6a8hootaVpH9MEdR6KQ1YnoDG28KYCfVeV0f1Z2uJUNpI1Hb8WgkThJlhEJIOlRY=s2560'
                 }
             ]
         },
@@ -268,7 +272,7 @@ export default {
                         {speed: 5},
                         {speed: 1}
                     ],
-                    urlImage: ''
+                    image: ''
                 },
                 {
                     id: 23,
@@ -279,7 +283,7 @@ export default {
                         {speed: 1},
                         {speed: 5},
                     ],
-                    urlImage: '/src/assets/img/card-image-5.png'
+                    image: 'https://lh3.googleusercontent.com/drive-viewer/AKGpihYpP--DtIq2yDX-Ir_acPt9JtA8QizXmVgA8qPIQf7bQdYIPa3n9AfSQBXbkdBLC7p-40k34s-6jLl7FrwZBLGkfPOvRf_01IY=s2560'
                 },
                 {
                     id: 24,
@@ -288,7 +292,7 @@ export default {
                     progress: [
                         {speed: 2}
                     ],
-                    urlImage: ''
+                    image: ''
                 },
                 {
                     id: 25,
@@ -298,7 +302,7 @@ export default {
                         {speed: 4},
                         {speed: 6}
                     ],
-                    urlImage: ''
+                    image: ''
                 }
             ]
         },
