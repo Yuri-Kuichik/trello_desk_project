@@ -86,7 +86,7 @@ const plusUser = () => [
 
     &__user-wrapper {
         &:not(:first-child) {
-                margin-left: -15px;
+                margin-left: -13px;
             }
     }
 

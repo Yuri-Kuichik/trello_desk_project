@@ -26,7 +26,6 @@ const addCard = (card) => {
 }
 
 watch( dataCards, (newData) => {
-    console.log('ColumnItem component -> mwatch dataCards -> newData: ', newData)
     rootStore.updateColumn(props.columnIndex, newData)
 })
 
